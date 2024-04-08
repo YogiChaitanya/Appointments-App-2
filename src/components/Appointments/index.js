@@ -5,7 +5,7 @@ import {format} from 'date-fns'
 import './index.css'
 import AppointmentItem from '../AppointmentItem'
 
-// 3 doubt = how to create button functionality in starred
+// doubt3 = how to create button functionality in starred
 // if click button only favourite stars only has to
 // appointmentItem only has to display
 
@@ -17,7 +17,7 @@ class Appointments extends Component {
     starredBtn2Status: false,
   }
 
-  // 2 doubt = how to write a isFavourite struggling
+  // doubt2 = how to write a isFavourite struggling
   toggleIsFavourite = id => {
     this.setState(prevState => ({
       listOfAppointments: prevState.listOfAppointments.map(eachApp => {
@@ -29,20 +29,12 @@ class Appointments extends Component {
     }))
   }
 
+  // 3 if you click on starred button status has to change
+  // mistake1 if you click on button important appointments has to display that functionality implemented here
   onClickStarredBtn = () => {
-    const {listOfAppointments} = this.state
-
     this.setState(prevState => ({
       starredBtn2Status: !prevState.starredBtn2Status,
     }))
-
-    const importantAppointments = listOfAppointments.filter(
-      eachAppoint => eachAppoint.isFavourite === true,
-    )
-
-    this.setState({
-      listOfAppointments: importantAppointments,
-    })
   }
 
   onAdd = event => {
@@ -79,10 +71,22 @@ class Appointments extends Component {
     })
   }
 
+  getFilteredAppointments = () => {
+    const {starredBtn2Status, listOfAppointments} = this.state
+    if (starredBtn2Status === true) {
+      const importantAppointments = listOfAppointments.filter(
+        eachAppoint => eachAppoint.isFavourite === true,
+      )
+      return importantAppointments
+    }
+    return listOfAppointments
+  }
+
   render() {
-    const {listOfAppointments, titleInput, dateInput, starredBtn2Status} =
-      this.state
+    const {titleInput, dateInput, starredBtn2Status} = this.state
     const isActive1 = starredBtn2Status ? 'active-btn' : 'inActive-btn'
+
+    const filteredData = this.getFilteredAppointments()
 
     return (
       <div className="bg-container">
@@ -133,7 +137,7 @@ class Appointments extends Component {
           </div>
 
           <ul className="list-container">
-            {listOfAppointments.map(eachApp => (
+            {filteredData.map(eachApp => (
               <AppointmentItem
                 key={eachApp.id}
                 appointmentDetails={eachApp}
