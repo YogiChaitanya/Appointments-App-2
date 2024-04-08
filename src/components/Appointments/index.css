@@ -1,0 +1,96 @@
+/* Write your CSS here */
+
+.bg-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  background-image: linear-gradient(to bottom, #fbc7d4, #9796f0);
+  min-height: 100vh;
+  padding: 30px;
+}
+
+.card-container {
+  background-color: #ffffff;
+  padding: 30px;
+
+  border-radius: 10px;
+}
+
+.card1 {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.form-control {
+  display: flex;
+  flex-direction: column;
+
+  padding: 10px;
+}
+
+.title-input {
+  height: 40px;
+  border-radius: 5px;
+
+  margin-bottom: 20px;
+  outline: none;
+}
+
+.date-input {
+  height: 40px;
+  border-radius: 5px;
+
+  margin-bottom: 20px;
+  outline: none;
+}
+.appointments-img {
+  width: 40%;
+}
+.add-btn {
+  background-color: #8b5cf6;
+  color: #ffffff;
+  height: 30px;
+  width: 60px;
+
+  border-radius: 6px;
+  border: none;
+}
+.line {
+  border: 2px solid #b5b7c4;
+}
+
+.starred-btn {
+  height: 30px;
+  width: 90px;
+  border-radius: 30px;
+
+  outline: none;
+}
+
+.active-btn {
+  background-color: #9897f0;
+  color: #ffffff;
+  border: none;
+}
+
+.inActive-btn {
+  background-color: transparent;
+  color: #9897f0;
+  border: 1px solid #9897f0;
+}
+
+.card2 {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+/*i have doubt in this one*/
+
+.list-container {
+  list-style-type: none;
+  display: flex;
+  flex-wrap: wrap;
+}
